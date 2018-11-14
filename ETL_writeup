@@ -1,0 +1,38 @@
+1. The sources of data that you will extract from.
+- Two yelp datasets were taken from Kaggle. The datasets were in csv formate and inluded 1.2 million rows. 
+Dataset 1 includes yelp user information (e.g., user_id, review_count, user usefulness, number of user fans, etc).
+Dataset 2 includes yelp user reviews information (e.g., user_id, star rating of reviews, review usefulness, etc). 
+
+2. The type of transformation needed for this data (cleaning, joining, filtering, aggregating, etc).
+- User information table included 22 variables/columns. I only needed 4: ['user_id', 'review_count', 'useful', 'funny', 'fans'].
+As such, the rest were excluded from the final table. 
+- User reviews table included 9 variables/columns. I only needed 2: [['user_id', 'stars']. The rest were excluded in the final 
+table. 
+- These tables were initially converted from csv files to pandas dataframes. The goal was to join save the datasets on a local
+mysql database. Given the size of the original datasets (1.2 million rows), the tables had to be sliced to 10,000. 
+Since I do not have an enterprise version of mysql, I could not load 1.2 millions rows. 
+- Once saved in the local database, the tables were joined based on 'user_id's'that overlapped between the two tables. 
+
+3. The type of final production database to load the data into (relational or non-relational).
+The final tables or collections that will be used in the production databas
+- The datasets were loaded on a relational database (MySQL). 
+
+
+4. Extract: your original data sources and how the data was formatted (CSV, JSON, MySQL, etc).
+- As mentioned above, original data sources were in CSV format.
+ There were a number of json fomatted datasets, but the yelp Kaggle datasets were
+in CSV format.
+- User information table included 22 variables/columns. I only needed 4: ['user_id', 'review_count', 'useful', 'funny', 'fans'].
+As such, the rest were excluded from the final table. 
+- User reviews table included 9 variables/columns. I only needed 2: [['user_id', 'stars']. The rest were excluded in the final 
+table. 
+- These tables were initially converted from csv files to pandas dataframes. The goal was to join save the datasets on a local
+mysql database. Given the size of the original datasets (1.2 million rows), the tables had to be sliced to 10,000. 
+Since I do not have an enterprise version of mysql, I could not load 1.2 millions rows. 
+- Once saved in the local database, the tables were joined based on 'user_id's'that overlapped between the two tables. 
+Transform: what data cleaning or transformation was required.
+- 
+5. Load: the final database, tables/collections, and why this was chosen.
+- The final datasets were loaded on a relational database (MySQL). I personally feel more comfortable working on mySQL 
+(as opposed to sqllite, mongodb). This is the primary reason why I chose MySQL as a final database. The workbench may also 
+be easier to navigate, especially for users unfamiliar with different types of database. 

@@ -30,9 +30,16 @@ table.
 mysql database. Given the size of the original datasets (1.2 million rows), the tables had to be sliced to 10,000. 
 Since I do not have an enterprise version of mysql, I could not load 1.2 millions rows. 
 - Once saved in the local database, the tables were joined based on 'user_id's'that overlapped between the two tables. 
-Transform: what data cleaning or transformation was required.
-- 
-5. Load: the final database, tables/collections, and why this was chosen.
+
+5.Transform: what data cleaning or transformation was required.
+- Transformation primarily involved taking out unnecessary columns/variables. I kept variables of interest. The final database
+included the following information: user_id, review_counts, usefulness of reviews, fans of users, average funny score of 
+comments, and average star ratings of the users' reviews. I wanted to keep the databse simple. 
+- The original datasets also included 1.2 million rows. MySQL (non-enterprise) version had a limit as far loading data. As such,
+I sliced the dataset to 10,000. I could have probably gone higher, but I kept getting a "broken pipe" error due to the size
+of the datasets. As such, I decided to save 10,000 datapoints. 
+
+6. Load: the final database, tables/collections, and why this was chosen.
 - The final datasets were loaded on a relational database (MySQL). I personally feel more comfortable working on mySQL 
 (as opposed to sqllite, mongodb). This is the primary reason why I chose MySQL as a final database. The workbench may also 
 be easier to navigate, especially for users unfamiliar with different types of database. 

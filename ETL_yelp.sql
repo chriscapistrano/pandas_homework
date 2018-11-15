@@ -1,4 +1,4 @@
-use yelp_ETL;
+use yelp_2;
 
 SET SQL_SAFE_UPDATES = 0;
     
